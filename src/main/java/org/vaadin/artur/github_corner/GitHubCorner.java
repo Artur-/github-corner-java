@@ -4,28 +4,29 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.PropertyDescriptor;
 import com.vaadin.flow.component.PropertyDescriptors;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.html.Anchor;
 
 @Tag("github-corner")
-@HtmlImport("bower_components/github-corner/github-corner.html")
+@NpmPackage(value = "github-corner", version = "2.0.3")
 public class GitHubCorner extends Component {
 
-    private static PropertyDescriptor<String, String> propertyHref = PropertyDescriptors
-            .propertyWithDefault("href", "");
+    private Anchor anchor;
 
     public GitHubCorner(String githubUser, String githubRepository) {
         this("https://github.com/" + githubUser + "/" + githubRepository);
     }
 
     public GitHubCorner(String githubUrl) {
+        this.anchor = new Anchor();
         setHref(githubUrl);
     }
 
     public void setHref(String href) {
-        propertyHref.set(this, href);
+        anchor.setHref(href);
     }
 
     public String getHref() {
-        return propertyHref.get(this);
+        return anchor.getHref();
     }
 }
