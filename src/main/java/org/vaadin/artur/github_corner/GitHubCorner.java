@@ -10,8 +10,7 @@ import com.vaadin.flow.component.html.Anchor;
 
 @Tag("github-corner")
 @NpmPackage(value = "github-corner", version = "2.0.3")
-// "@vaadin/../" is a workaround for https://github.com/vaadin/flow/issues/5761
-@JsModule("@vaadin/../github-corner/index.js")
+@JsModule("github-corner/index.js")
 public class GitHubCorner extends Component {
 
     private Anchor anchor;
